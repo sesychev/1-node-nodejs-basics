@@ -1,8 +1,9 @@
 const fs = require("fs");
 const path = require('path');
 
+const pathname = path.join(__dirname, "/fresh.txt"); // используйте path.join()
 const create = async () => {
-    let pathname = path.join(__dirname, "/fresh.txt"); // используйте path.join()
+
     const stream = fs.createWriteStream("FILE.TXT");
     // Write your code here 
 };
