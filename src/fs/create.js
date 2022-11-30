@@ -7,11 +7,11 @@ const __dirname = path.dirname(__filename);
 
 const writePath = path.join(__dirname, "files", "/fresh.txt");
 
-export const create = async () => {
+const create = async () => {
 // Write your code here
 const content = "I am fresh and young";
 
-fs.stat(writePath, (e) =>{  
+fs.stat(writePath, (e) => {  
   if (e) {
     let writable = fs.createWriteStream(writePath, {
       encoding: "utf-8",
@@ -19,7 +19,7 @@ fs.stat(writePath, (e) =>{
     
   writable.write(content);
   } else {
-    throw new Error("FS operation failed")
+    throw new Error("FS operation failed");
   }
 });
 };
