@@ -1,32 +1,27 @@
-const fs = require("fs");
-const path = require('path');
+import fs from "fs";
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const pathname = path.join(__dirname, "/fresh.txt"); // используйте path.join()
-const create = async () => {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-    const stream = fs.createWriteStream("FILE.TXT");
-    // Write your code here 
+const writePath = path.join(__dirname, "files", "/fresh.txt");
+
+export const create = async () => {
+// Write your code here
+const content = "I am fresh and young";
+
+fs.stat(writePath, (e) =>{  
+  if (e) {
+    let writable = fs.createWriteStream(writePath, {
+      encoding: "utf-8",
+  });
+    
+  writable.write(content);
+  } else {
+    throw new Error("FS operation failed")
+  }
+});
 };
 
-await create();
-
-/*
-const fs = require("fs");
-const path = require("path");
-const process = require("process");
-
-const readPath = path.join(__dirname, "/text.txt");
-
-let readable = fs.createReadStream(readPath, {
-  encoding: "utf-8",
-});
-
-readable.pipe(process.stdout); //вывод текста в консоль
-
-const wtitePath = path.join(__dirname, "/temp.txt");
-
-let writable = fs.createWriteStream(wtitePath, {
-  encoding: "utf-8",
-});
-
-readable.pipe(writable); // запись в файл из потока/файла
+create()
