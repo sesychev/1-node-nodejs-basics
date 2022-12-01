@@ -9,26 +9,16 @@ const writePath = path.join(__dirname, "files", "/fileToWrite.txt");
 
 
 const write = async () => {
-  // Write your code here
-  try {
-    // The check succeeded
-    await fs.promises.access(writePath);
-      
+    // Write your code here
     let writable = fs.createWriteStream(writePath, {
         encoding: "utf-8",
     });
-      
-    process.stdout.write(
+  
+    process.stdout.write (
         "Please, write here something:" + "\n"
-      );
-      
-    process.stdin.on("data", function (data) {
-        writable.write(data);
-    });
-    } catch (error) {
-        // The check failed
-        throw new Error("FS operation failed");
-    } 
-};
+    );
+  
+    process.stdin.on("data", (data) => writable.write(data))
+}
 
 await write();
