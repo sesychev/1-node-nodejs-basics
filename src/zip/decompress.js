@@ -1,3 +1,8 @@
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { createGzip } from "zlib";
+
 const decompress = async () => {
   // Write your code here
 };
