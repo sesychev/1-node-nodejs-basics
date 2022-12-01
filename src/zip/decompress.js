@@ -10,6 +10,7 @@ const readPath = path.join(__dirname, "files", "/archive.gz");
 
 const decompress = async () => {
   // Write your code here
+
   fs.createReadStream(readPath)
     .pipe(zlib.createGunzip())
     .pipe(fs.createWriteStream(writePath, { encoding: "utf8" }))
