@@ -10,7 +10,6 @@ const writePath = path.join(__dirname, "files", "/archive.gz");
 
 const compress = async () => {
   // Write your code here
-
   const inp = fs.createReadStream(readPath); // Creating readable Stream
   const out = fs.createWriteStream(writePath); // Creating writable stream
 
