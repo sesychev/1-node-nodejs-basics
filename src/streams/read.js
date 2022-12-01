@@ -18,7 +18,6 @@ const read = async () => {
         // The check failed
         throw new Error("FS operation failed");
     } 
-
 };
 
 await read();
