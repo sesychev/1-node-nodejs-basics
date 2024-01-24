@@ -20,10 +20,10 @@ const copy = async () => {
     fs.mkdir(pathFilesCopy, { recursive: true }, (err) => {
       if (err) console.log(err);
       else {
-        console.log("The 'files_copy' directory created successfully");
+        console.log("The 'files_copy' directory was created successfully");
         fs.cp(pathFiles, pathFilesCopy, { recursive: true }, (err) => {
           if (err) console.log(err);
-          console.log("The files copied successfully");
+          console.log("The files were copied successfully");
         });
       }
     });
