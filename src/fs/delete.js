@@ -9,11 +9,8 @@ const pathName = join(__dirname, "files/fileToRemove.txt");
 
 const remove = async () => {
   fs.unlink(pathName, (err) => {
-    if (err) {
-      if (err) throw new Error(`FS operation failed`);
-    } else {
-      console.log("File is deleted.");
-    }
+    if (err) throw new Error(`FS operation failed`);
+    console.log("File is deleted.");
   });
 };
 
