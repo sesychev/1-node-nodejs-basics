@@ -8,9 +8,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const compress = async () => {
-  const pathFolder = join(__dirname, "files/fileToCompress.txt");
+  const pathFile = join(__dirname, "files/fileToCompress.txt");
   const writeStream = fs.createWriteStream(join(__dirname, "archive.gz"));
-  fs.createReadStream(pathFolder).pipe(zlib.createGzip()).pipe(writeStream);
+  fs.createReadStream(pathFile).pipe(zlib.createGzip()).pipe(writeStream);
 };
 
 await compress();
