@@ -1,5 +1,5 @@
 import os from "os";
-import { Worker, isMainThread, parentPort } from "worker_threads";
+import { Worker } from "worker_threads";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import { join } from "path";
